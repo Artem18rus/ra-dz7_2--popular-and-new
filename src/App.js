@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./css/index.css";
 
 function New(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="wrap-item wrap-item-new">
       <span className="label">New!</span>
@@ -12,7 +12,7 @@ function New(props) {
 }
 
 function Popular(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="wrap-item wrap-item-popular">
       <span className="label">Popular!</span>
@@ -22,7 +22,7 @@ function Popular(props) {
 }
 
 function Article(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="item item-article">
       <h3>
