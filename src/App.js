@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./css/index.css";
 
 function New(props) {
+  console.log(props);
   return (
     <div className="wrap-item wrap-item-new">
       <span className="label">New!</span>
@@ -11,7 +12,7 @@ function New(props) {
 }
 
 function Popular(props) {
-  console.log(props.children);
+  console.log(props);
   return (
     <div className="wrap-item wrap-item-popular">
       <span className="label">Popular!</span>
@@ -21,7 +22,7 @@ function Popular(props) {
 }
 
 function Article(props) {
-  //console.log(props)
+  console.log(props);
   return (
     <div className="item item-article">
       <h3>
@@ -49,18 +50,18 @@ function Video(props) {
 function videoWrapper(Component) {
   return function (props) {
     const { views } = props;
-    // console.log(props)
+    //console.log(props);
     if (views >= 1000) {
-      return <Popular></Popular>;
-    } else if (views > 100) {
-      return <New> </New>;
+      return <Popular {...props} />;
+    } else if (views < 100) {
+      return <New {...props} />;
     }
     return <Component />;
   };
 }
 
 const ResultVideo = videoWrapper(Video);
-const ResultArticle = videoWrapper(Video);
+const ResultArticle = videoWrapper(Article);
 
 function List(props) {
   // console.log(props)
