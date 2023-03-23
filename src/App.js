@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./css/index.css";
+import { nanoid } from "nanoid";
 
 function New(props) {
   // console.log(props);
@@ -12,7 +13,7 @@ function New(props) {
 }
 
 function Popular(props) {
-  // console.log(props);
+  console.log(props);
   return (
     <div className="wrap-item wrap-item-popular">
       <span className="label">Popular!</span>
@@ -49,12 +50,22 @@ function Video(props) {
 
 function videoWrapper(Component) {
   return function (props) {
+    // console.log(props);
     const { views } = props;
-    //console.log(props);
     if (views >= 1000) {
-      return <Popular {...props} />;
+      return (
+        <Popular>
+          <Component {...props} />
+        </Popular>
+      );
     } else if (views < 100) {
-      return <New {...props} />;
+      return (
+        <New>
+          <Component {...props} />
+        </New>
+      );
+    } else {
+      return <Component {...props} />;
     }
     return <Component />;
   };
@@ -68,10 +79,10 @@ function List(props) {
   return props.list.map((item) => {
     switch (item.type) {
       case "video":
-        return <ResultVideo {...item} />;
+        return <ResultVideo key={nanoid()} {...item} />;
 
       case "article":
-        return <ResultArticle {...item} />;
+        return <ResultArticle key={nanoid()} {...item} />;
     }
   });
 }
