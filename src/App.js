@@ -3,7 +3,6 @@ import "./css/index.css";
 import { nanoid } from "nanoid";
 
 function New(props) {
-  // console.log(props);
   return (
     <div className="wrap-item wrap-item-new">
       <span className="label">New!</span>
@@ -13,7 +12,6 @@ function New(props) {
 }
 
 function Popular(props) {
-  console.log(props);
   return (
     <div className="wrap-item wrap-item-popular">
       <span className="label">Popular!</span>
@@ -23,7 +21,6 @@ function Popular(props) {
 }
 
 function Article(props) {
-  // console.log(props);
   return (
     <div className="item item-article">
       <h3>
@@ -50,7 +47,6 @@ function Video(props) {
 
 function videoWrapper(Component) {
   return function (props) {
-    // console.log(props);
     const { views } = props;
     if (views >= 1000) {
       return (
@@ -75,7 +71,6 @@ const ResultVideo = videoWrapper(Video);
 const ResultArticle = videoWrapper(Article);
 
 function List(props) {
-  // console.log(props)
   return props.list.map((item) => {
     switch (item.type) {
       case "video":
